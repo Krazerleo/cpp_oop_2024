@@ -9,6 +9,7 @@ public:
   BaseNode() : _data() {}
   explicit BaseNode(const T &data) : _data(data) {}
   explicit BaseNode(T &&data) : _data(std::move(data)) {}
+  virtual ~BaseNode() = default;
 
 public:
   T &getData() { return _data; }

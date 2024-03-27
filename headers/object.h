@@ -15,7 +15,7 @@ public:
 
   std::string virtual ToString() const noexcept = 0;
 
-  Object(Object const &object) { _objectCounter.fetch_add(1); }
+  Object([[maybe_unused]] Object const &object) { _objectCounter.fetch_add(1); }
 
   virtual ~Object() { _objectCounter.fetch_add(-1); };
 
