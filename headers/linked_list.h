@@ -58,13 +58,37 @@ public:
   }
 
 public:
-  reference front() { return head->next->getData(); }
+  reference front() {
+    if (count == 0) {
+      throw std::runtime_error("List is empty");
+    }
 
-  const_reference front() const { return *head->next->getData(); }
+    return head->next->getData();
+  }
 
-  reference back() { return tail->prev->getData(); }
+  const_reference front() const {
+    if (count == 0) {
+      throw std::runtime_error("List is empty");
+    }
 
-  const_reference back() const { return tail->prev->getData(); }
+    return *head->next->getData();
+  }
+
+  reference back() {
+    if (count == 0) {
+      throw std::runtime_error("List is empty");
+    }
+
+    return tail->prev->getData();
+  }
+
+  const_reference back() const {
+    if (count == 0) {
+      throw std::runtime_error("List is empty");
+    }
+
+    return tail->prev->getData();
+  }
 
 public:
   iterator begin() noexcept { return iterator(*head->next); }
